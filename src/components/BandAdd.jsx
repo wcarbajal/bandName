@@ -1,11 +1,13 @@
-import { useState } from 'react';
-import { useSocket } from '../hooks/useSocket';
+import { useContext, useState } from 'react';
+import { SocketContex } from '../context/socketContex';
+
+
 
 export const BandAdd = (  ) => {
 
   const [ valor, setValor ] = useState( '' );
 
-  const { socket } = useSocket( 'http://localhost:8080' );
+  const { socket } = useContext( SocketContex )
 
 
   const onSubmit = ( ev ) => {
