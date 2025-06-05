@@ -3,14 +3,12 @@ import io from 'socket.io-client';
 
 export const useSocket = ( serverPath ) => {
 
-  const socket = useMemo( () => io.connect( serverPath, {
-    transports: [ 'websocket' ]
-  } ), [ serverPath ] );
+  const socket = useMemo( () => io.connect( serverPath, {transports: [ 'websocket' ]  } ), [ serverPath ] );
 
   const [ online, setOnline ] = useState( false );
 
   useEffect( () => {
-    console.log( socket );
+    
     setOnline( socket.connected );
 
   }, [ socket ] );
